@@ -20,7 +20,7 @@ class TasksController < ApplicationController
     @news = tasks.select { |x| x.status == 'new' }
     @in_progress = tasks.select { |x| x.status == 'in_progress' }
     @complete = tasks.select { |x| x.status == 'complete' }
-    @canceled = tasks.select { |x| x.status == 'cancel' }
+    @canceled = tasks.select { |x| x.status == 'canceled' }
   end
 
   def change_state
