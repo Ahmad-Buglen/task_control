@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   post 'tasks/change_state', to:  "tasks#change_state"
-  get 'tasks/approve', to:  "tasks#approove"
+  post 'tasks/approve', to:  "tasks#approve"
   # root "/tasks", to: "tasks#index"
   root to: "tasks#index"
 

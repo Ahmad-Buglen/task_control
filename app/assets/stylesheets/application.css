@@ -25,6 +25,10 @@
      color: #11bb00;
  }
  
+ .alert {
+	color: #F53A31;
+}
+
  .error {
      color: #F53A31;
  }
@@ -113,7 +117,7 @@
 	left: 10px;
 }
 
-.button_approove {
+.button_approve {
 	top: 5px;
     background-color: #4CAF50;
     border: none;
@@ -173,7 +177,7 @@ td {
 	right: 5px;
 }
 
-.approove {
+.approve {
 	position: absolute; 
 	top: 5px; 
 	right: 5px;

@@ -15,7 +15,7 @@
 			<br>
             <div class="new_task"><span class="task_name"><%= t.name %></span> 
                 <div class="start">
-                <%= button_to "Start", {:controller => "tasks", :action => "change_state", :state => "in_progress", :task_id => t.id }, {:class => "button_approove", :method => :post} %>
+                <%= button_to "Start", {:controller => "tasks", :action => "change_state", :state => "in_progress", :task_id => t.id }, {:class => "button_approve", :method => :post} %>
                 </div>
             </div>
             <% end %>
@@ -33,9 +33,9 @@
                 <%= button_to "Cancel", {:controller => "tasks", :action => "change_state", 
                             :task_id => t.id.to_s, :state => "canceled"}, {:class => "button_cancel", :method => :post} %>
                 </div>
-                <div class="approove">
-                <%= button_to "Approove", {:controller => "tasks", :action => "approove", 
-                            :task_id => t.id.to_s, :user_id => current_user.id }, {:class => "button_approove", :method => :post} %>
+                <div class="approve">
+                <%= button_to "Approve", {:controller => "tasks", :action => "approve", 
+                            :task_id => t.id.to_s, :user_id => current_user.id }, {:class => "button_approve", :method => :post} %>
                 </div>
             </div>
             <% end %>
