@@ -1,2 +1,65 @@
 <h1>Tasks#index</h1>
-<p>Find me in app/views/tasks/index.html.erb</p>
+<table class="table">
+  <tr>
+		<th>New</th>
+	    <th>In progres</th>
+		<th>Complete</th>
+		<th>Canceled</th>
+	</tr>
+  	<td>
+  		<div class="conteiner">
+            <% @news.each do |t| %>
+			<br>
+            <div class="new_task"><span class="task_name"><%= t.name %></span> 
+                <div class="start">
+                <%= button_to "Start", {:controller => "tasks", :action => "change_state", 
+                            :id => t.id.to_s, :state => "in_progress", :method => :get}, {:class => "button_approove"} %>
+                </div>
+            </div>
+            <% end %>
+		</div>
+    </td>
+    <td>
+        <% @in_progress.each do |t| %>
+			<br>
+            <div class="in_progress_task"><span class="task_name"><%= t.name %></span> 
+                <div class="complete">
+                <%= button_to "Complete", {:controller => "tasks", :action => "change_state", 
+                            :id => t.id.to_s, :state => "complete", :method => :get}, {:class => "button_complete"} %>
+                </div>
+                <div class="cancel">
+                <%= button_to "Cancel", {:controller => "tasks", :action => "change_state", 
+                            :id => t.id.to_s, :state => "cancel", :method => :get}, {:class => "button_cancel"} %>
+                </div>
+                <div class="approove">
+                <%= button_to "Approove", {:controller => "tasks", :action => "approove", 
+                            :id => t.id.to_s, :user_id => current_user.id, :method => :get}, {:class => "button_approove"} %>
+                </div>
+            </div>
+            <% end %>
+    	<br>
+    </td>
+    	
+    <td>
+        <% @complete.each do |t| %>
+            <br>
+            <div class="complete_task"><span class="task_name"><%= t.name %></span> 
+                <br>
+                <span class="completed_at">Completed_at: <%=time_ago_in_words(t.completed_at) %></span>
+            </div>
+        <% end %>
+    </td>
+    <td>
+        <% @canceled.each do |t| %>
+            <br>
+            <div class="cancel_task"><span class="task_name"><%= t.name %></span> 
+                <br>
+                <span class="canceled_at">Canceled_at: <%=time_ago_in_words(t.canceled_at) %></span>
+            </div>
+        <% end %>
+    </td>
+  </tr>
+</table>
+
+
+

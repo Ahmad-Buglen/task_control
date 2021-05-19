@@ -13,3 +13,150 @@
  *= require_tree .
  *= require_self
  */
+
+ .container {
+	position: relative;
+}
+
+.new_task {
+	min-width: 100%;
+	min-height: 75px;
+	position: relative;
+	top: 0;
+	left: 0;
+	border: 1px #0a0 solid;
+    border-radius: 5px;
+}
+
+.in_progress_task {
+	min-width: 100%;
+	min-height: 75px;
+	position: relative;
+	top: 0;
+	left: 0;
+	border: 1px #00a solid;
+    border-radius: 5px;
+}
+.complete_task {
+	position: relative;
+	min-width: 100%;
+	min-height: 75px;
+	position: relative;
+	top: 0;
+	left: 0;
+	border: 1px #a00 solid;
+    border-radius: 5px;
+}
+.cancel_task {
+	min-width: 100%;
+	min-height: 75px;
+	position: relative;
+	top: 0;
+	left: 0;
+	border: 1px #000 solid;
+    border-radius: 5px;
+}
+
+.completed_at {
+	display: block;
+	text-align: right;
+	position: absolute; 
+	bottom: 5px; 
+	right: 11px; 
+	display: block;
+    font-size: 12px;
+}
+
+.canceled_at {
+	display: block;
+	text-align: right;
+	position: absolute; 
+	bottom: 5px; 
+	right: 11px; 
+	display: block;
+    font-size: 12px;
+}
+
+.table {
+	width: 100%;
+}
+
+.task_name {
+	color: black;
+	font-family: serif;
+	position: relative; 
+	top: 5px;
+	left: 10px;
+}
+
+.button_approove {
+	top: 5px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 3px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    border-radius: 2px;
+}
+
+.button_complete {
+	top: 5px;
+    background-color: #008CBA;
+    border: none;
+    color: white;
+    padding: 3px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    border-radius: 2px;
+}
+
+.button_cancel {
+	top: 5px;
+	background-color: #555555;
+    border: none;
+    color: white;
+    padding: 3px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    border-radius: 2px;
+}
+
+table {
+    border-collapse: separate; 
+    width: 100%;
+    border-spacing: 7px 11px; 
+}
+td {
+	vertical-align: top;
+	padding: 5px;
+}
+
+.start {
+	position: absolute; 
+	bottom: 5px; 
+	right: 5px;
+}
+.complete {
+	position: absolute; 
+	bottom: 5px; 
+	right: 5px;
+}
+
+.approove {
+	position: absolute; 
+	top: 5px; 
+	right: 5px;
+}
+
+.cancel {
+	position: absolute; 
+	bottom: 5px; 
+	left: 11px;
+}
