@@ -14,6 +14,30 @@
  *= require_self
  */
 
+ .notice,
+ .error,
+ .information,
+ .warning {
+     font-weight: bold;
+ }
+ 
+ .notice {
+     color: #11bb00;
+ }
+ 
+ .error {
+     color: #F53A31;
+ }
+ 
+ .information {
+     color: #557;
+ }
+ 
+ .warning {
+     color: #d07d2d;
+ }
+
+
  .container {
 	position: relative;
 }

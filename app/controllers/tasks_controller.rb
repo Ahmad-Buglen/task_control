@@ -2,6 +2,21 @@ class TasksController < ApplicationController
   
   before_action  :authenticate_user!
 
+  def new
+    @task = Task.new
+  end
+
+  def create
+    @task = Task.new(task_params)
+
+    if @task.save
+      redirect_to root_path
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+
   def index
     tasks = Task.all.to_a
     @news = tasks.select {|x| x.status == 'new'}
@@ -12,27 +27,31 @@ class TasksController < ApplicationController
 
 
   def change_state
-    task = Task.find(id: params[:id])
-    if (task.state == 'new' && params[:state] == 'in_progress') ||
-        (task.state == 'in_progress' && params[:state] == 'complete') ||
-          (task.state == 'in_pprogress' && params[:state] == 'canceled')
+    task = Task.find(params[:task_id].to_i)
+    if (task.status == 'new' && params[:state] == 'in_progress') ||
+        (task.status == 'in_progress' && params[:state] == 'complete') ||
+          (task.status == 'in_progress' && params[:state] == 'canceled')
       task.status = params[:state]
       task.completed_at = params[:state] == "complete" ? Time.now : nil
       task.canceled_at = params[:state] == "canceled" ? Time.now : nil
       begin
         task.save!
-      rescue StandardError
-        task.errors.add(:save, "Error when update task status")
-        flash[:notice] = task.errors[:save]
-        redirect_to root_url
+        flash[:notice] = "Status successfully changed"
+      rescue
+        flash[:alert] = "Error when update task status"
       end
     else
-      flash[:notice] = "Error status for task"
-      redirect_to root_url
+      flash[:alert] = "Error status for task"
     end
+    redirect_to root_url
   end
 
   def approove
     
   end
+
+  private
+    def task_params
+      params.require(:task).permit(:name, :deadline)
+    end
 end

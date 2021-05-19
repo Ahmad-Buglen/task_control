@@ -1,4 +1,7 @@
 <h1>Tasks#index</h1>
+
+<%= link_to "New task", new_task_path %>
+
 <table class="table">
   <tr>
 		<th>New</th>
@@ -12,8 +15,7 @@
 			<br>
             <div class="new_task"><span class="task_name"><%= t.name %></span> 
                 <div class="start">
-                <%= button_to "Start", {:controller => "tasks", :action => "change_state", 
-                            :id => t.id.to_s, :state => "in_progress", :method => :get}, {:class => "button_approove"} %>
+                <%= button_to "Start", {:controller => "tasks", :action => "change_state", :state => "in_progress", :task_id => t.id }, {:class => "button_approove", :method => :post} %>
                 </div>
             </div>
             <% end %>
@@ -25,15 +27,15 @@
             <div class="in_progress_task"><span class="task_name"><%= t.name %></span> 
                 <div class="complete">
                 <%= button_to "Complete", {:controller => "tasks", :action => "change_state", 
-                            :id => t.id.to_s, :state => "complete", :method => :get}, {:class => "button_complete"} %>
+                            :task_id => t.id.to_s, :state => "complete"}, {:class => "button_complete", :method => :post} %>
                 </div>
                 <div class="cancel">
                 <%= button_to "Cancel", {:controller => "tasks", :action => "change_state", 
-                            :id => t.id.to_s, :state => "cancel", :method => :get}, {:class => "button_cancel"} %>
+                            :task_id => t.id.to_s, :state => "canceled"}, {:class => "button_cancel", :method => :post} %>
                 </div>
                 <div class="approove">
                 <%= button_to "Approove", {:controller => "tasks", :action => "approove", 
-                            :id => t.id.to_s, :user_id => current_user.id, :method => :get}, {:class => "button_approove"} %>
+                            :task_id => t.id.to_s, :user_id => current_user.id }, {:class => "button_approove", :method => :post} %>
                 </div>
             </div>
             <% end %>

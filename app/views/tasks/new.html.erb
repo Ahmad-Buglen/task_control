@@ -1,0 +1,24 @@
+<h1>New task</h1>
+
+<%= form_with model: @task do |form| %>
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+    <% @task.errors.full_messages_for(:name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+<br>
+  <div>
+    <%= form.label :deadline %><br>
+    <%= form.date_select  :deadline %>
+    <% @task.errors.full_messages_for(:deadline).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+<br>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
