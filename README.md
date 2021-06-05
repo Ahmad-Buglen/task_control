@@ -5,5 +5,4 @@
 2. Run `rake db:create`
 3. Run `rake db:migrate`
 4. Run `rake db:seed`
-5. Run `bundle exec rake webpacker:install`
-6. Start a server `rails s`
+5. Start a server `rails s`
