@@ -52,3 +52,10 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
  gem 'devise'
  gem 'omniauth-facebook'
  gem 'omniauth-rails_csrf_protection'
+
+ group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
+end
+
+gem 'rubocop', '~> 1.16', require: false
