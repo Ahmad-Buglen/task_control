@@ -3,10 +3,5 @@ Rails.application.routes.draw do
   post 'tasks/change_state', to:  "tasks#change_state"
   post 'tasks/approve', to:  "tasks#approve"
   root to: "tasks#index"
-
-  resources :tasks, only: [:index, :new, :create] 
-  devise_scope :user do
-    delete 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
-  end
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :tasks, only: [:index, :new, :create]
 end
